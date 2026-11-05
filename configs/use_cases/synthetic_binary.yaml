@@ -1,0 +1,12 @@
+use_case: synthetic_binary
+enabled: true
+dataset: synthetic_binary
+task: binary_classification
+split:
+  strategy: stratified
+  validation_fraction: 0.20
+  test_fraction: 0.20
+models: [logistic_regression, random_forest]
+training:
+  threshold_selection: validation_only
+metrics: [pr_auc, roc_auc, precision, recall, f1, brier_score]

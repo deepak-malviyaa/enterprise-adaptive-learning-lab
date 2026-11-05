@@ -1,0 +1,11 @@
+use_case: telecom_churn
+enabled: true
+dataset: ibm_telco_churn
+task: binary_classification
+data_path: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+split:
+  strategy: stratified
+  validation_fraction: 0.20
+  test_fraction: 0.20
+models: [logistic_regression, gradient_boosting, mlp, swiglu_mlp]
+metrics: [pr_auc, roc_auc, precision, recall, brier_score]

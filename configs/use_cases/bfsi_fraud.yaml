@@ -1,0 +1,14 @@
+use_case: bfsi_fraud
+enabled: true
+dataset: ulb_creditcard
+task: binary_classification
+data_path: data/raw/creditcard.csv
+split:
+  strategy: chronological
+  validation_fraction: 0.20
+  test_fraction: 0.20
+models: [logistic_regression, xgboost, mlp, swiglu_mlp]
+training:
+  class_weighting: compare
+  threshold_selection: validation_only
+metrics: [pr_auc, roc_auc, precision_at_k, recall, brier_score]

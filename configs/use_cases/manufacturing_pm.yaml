@@ -1,0 +1,11 @@
+use_case: manufacturing_pm
+enabled: true
+dataset: uci_ai4i_2020
+task: binary_classification
+data_path: data/raw/ai4i2020.csv
+split:
+  strategy: stratified
+  validation_fraction: 0.20
+  test_fraction: 0.20
+models: [logistic_regression, gradient_boosting, mlp, swiglu_mlp]
+metrics: [pr_auc, roc_auc, precision, recall, brier_score]
